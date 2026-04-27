@@ -162,11 +162,11 @@
           "conditions": [
             {
               "id": "4e41697a-6d68-42e8-a0e1-13e527aef068",
-              "leftValue": "={{ $json.telegram_user }}",
+              "leftValue": "={{ $json.usuarioExiste }}",
               "rightValue": "={{ $json.telegram_user }}",
               "operator": {
-                "type": "string",
-                "operation": "empty",
+                "type": "boolean",
+                "operation": "false",
                 "singleValue": true
               }
             }
@@ -8151,6 +8151,19 @@
           "name": "Telegram account"
         }
       }
+    },
+    {
+      "parameters": {
+        "jsCode": "var filas = items;\n\n\nvar existe = (filas.length > 0 && filas[0].json.telegram_user) ? true : false;\n\n\nreturn [{\n  json: {\n    usuarioExiste: existe,\n    datos: existe ? filas[0].json : null\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4848,
+        -48
+      ],
+      "id": "9c8572a6-94d0-46c9-a52b-50919b817581",
+      "name": "Code in JavaScript11"
     }
   ],
   "pinData": {},
@@ -8170,7 +8183,7 @@
       "main": [
         [
           {
-            "node": "If",
+            "node": "Code in JavaScript11",
             "type": "main",
             "index": 0
           }
@@ -9605,6 +9618,17 @@
           }
         ]
       ]
+    },
+    "Code in JavaScript11": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -9612,7 +9636,7 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "fe12ea03-67f4-492a-b4cb-bb84a603295b",
+  "versionId": "95168e5f-281e-4841-bc2c-7ad473b100e7",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "aca3c7075be9e471044888b9c263e25dc82797ba52013e85ecb179b50bd0bdd8"
