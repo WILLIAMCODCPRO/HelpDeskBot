@@ -1,3 +1,5 @@
+<img width="1049" height="757" alt="imagen" src="https://github.com/user-attachments/assets/8411e3d8-9b50-47eb-b042-bc41fd5ddc31" />
+
 # 🤖 HelpDeskBot — Documentación Técnica
 
 Bot de gestión de solicitudes de soporte construido con **n8n**, **Telegram** y **Google Sheets** como base de datos.
